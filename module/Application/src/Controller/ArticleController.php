@@ -36,17 +36,21 @@ class ArticleController extends AbstractActionController
     {
 
       $message='';
+      // action when submit
        if(isset($_POST['submit']) && ($_POST['feedurl'] != ''))
        {
           $url = $_POST['feedurl'];
+          //validate url
           if (!filter_var($url,FILTER_VALIDATE_URL)) {
             $message='Invalid RSS feed URL';
           }else {
+            // get content of RSS
             $content = file_get_contents($url);
-            $xml = new \SimpleXmlElement($content);
-
-            if(!empty($xml)){
+            if(!empty($content)){
+              $xml = new \SimpleXmlElement($content);
+              // before add action delete all old records
               $this->articleManager->deleteAllAction();
+
               foreach($xml->channel->item as $entry) {
                 $pubDate = date('Y-m-d H:i:s',strtotime($entry->pubDate));
                 $data=array(
@@ -55,6 +59,7 @@ class ArticleController extends AbstractActionController
                     "link"   => $entry->link,
                     "date" =>$pubDate
                 );
+                // add new RSS Feeds
                 $this->articleManager->addNewArticle($data);
               }
               // Redirect the user to "index" page list all Rss.

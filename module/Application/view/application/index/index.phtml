@@ -1,17 +1,26 @@
 <div class='container'>
-<div class="jumbotron">
-    <h1>Welcome to <span class="zf-green">Rss Feed</span></h1>
-</div>
+  <div class="jumbotron">
+      <h1>Welcome to <span class="zf-green">Rss Feed</span></h1>
+  </div>
 
-<?php foreach($articles as $article): ?>
-<div class="post" id="<?php echo $article->getId() ?>">
-    <div class="row post-head">
-      <h4 class="feed_title zf-green col-12 col-md-10"><?php echo $article->getName(); ?></h4>
-      <span class='center col-6 col-md-2'><?php echo $article->getDate() ;?></span>
-    </div>
-    <div class="post-content col-12 col-md-10">
-      <?php echo implode(' ', array_slice(explode(' ', $article->getDescription()), 0, 20)) . "..."; ?> <a href="<?php echo $article->getLink() ; ?>"><span class="zf-blue">Read more</span></a>
-    </div>
-</div>
+  <?php foreach($articles as $article): ?>
+
+  <div class="post" id="<?php echo $article->getId() ?>">
+      <div class="row post-head">
+        <h4 class="feed_title zf-green col-12 col-md-10">
+          <?php echo $article->getName(); ?>
+        </h4>
+        <span class=' col-6 col-md-2'>
+          <?php echo $article->getDate() ;?>
+        </span>
+      </div>
+      <div class="post-content col-12 col-md-10">
+        <?php echo implode(' ', array_slice(explode(' ', $article->getDescription()), 0, 20)) . "..."; ?>
+         <a href="<?php echo $article->getLink() ; ?>">
+           <span class="zf-blue">Read more</span>
+         </a>
+      </div>
+  </div>
+
   <?php endforeach; ?>
 </div>

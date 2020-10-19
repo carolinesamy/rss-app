@@ -6,9 +6,13 @@
 
 ## Introduction
 
-This is a skeleton application using the Zend Framework MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with Zend Framework.
+This is a RSS Feed application using the Zend Framework MVC layer and module
+systems.
+
+## Guid
+
+After Installation using composer.
+goto rss-app/articles/add to add valid RSS feed url and dynamiclly Redirect the user to "index" page to list all Rss.
 
 ## Installation using Composer
 
@@ -32,10 +36,11 @@ $ composer run --timeout 0 serve
 ```
 
 This will start the cli-server on port 8080, and bind it to all network
-interfaces. You can then visit the site at http://localhost:8080/
-- which will bring up Zend Framework welcome page.
+interfaces. You can then visit the site at <http://localhost:8080/>
 
-**Note:** The built-in CLI server is *for development only*.
+-   which will bring up Zend Framework welcome page.
+
+**Note:** The built-in CLI server is _for development only_.
 
 ## Development mode
 
@@ -54,7 +59,7 @@ configuration in `config/autoload/development.local.php.dist`. Enabling
 development mode will copy these files to versions removing the `.dist` suffix,
 while disabling development mode will remove those copies.
 
-Development mode is automatically enabled as part of the skeleton installation process. 
+Development mode is automatically enabled as part of the skeleton installation process.
 After making changes to one of the above-mentioned `.dist` configuration files you will
 either need to disable then enable development mode for the changes to take effect,
 or manually make matching updates to the `.dist`-less copies of those files.
@@ -63,12 +68,12 @@ or manually make matching updates to the `.dist`-less copies of those files.
 
 To run the supplied skeleton unit tests, you need to do one of the following:
 
-- During initial project creation, select to install the MVC testing support.
-- After initial project creation, install [zend-test](https://zendframework.github.io/zend-test/):
+-   During initial project creation, select to install the MVC testing support.
+-   After initial project creation, install [zend-test](https://zendframework.github.io/zend-test/):
 
-  ```bash
-  $ composer require --dev zendframework/zend-test
-  ```
+    ```bash
+    $ composer require --dev zendframework/zend-test
+    ```
 
 Once testing support is present, you can run the tests using:
 
@@ -105,15 +110,15 @@ $ vagrant ssh -c 'composer update'
 ```
 
 While running, Vagrant maps your host port 8080 to port 80 on the virtual
-machine; you can visit the site at http://localhost:8080/
+machine; you can visit the site at <http://localhost:8080/>
 
 > ### Vagrant and VirtualBox
 >
 > The vagrant image is based on ubuntu/xenial64. If you are using VirtualBox as
 > a provider, you will need:
 >
-> - Vagrant 1.8.5 or later
-> - VirtualBox 5.0.26 or later
+> -   Vagrant 1.8.5 or later
+> -   VirtualBox 5.0.26 or later
 
 For vagrant documentation, please refer to [vagrantup.com](https://www.vagrantup.com/)
 
@@ -127,7 +132,7 @@ uses the `Dockerfile` provided as its base. Build and start the image using:
 $ docker-compose up -d --build
 ```
 
-At this point, you can visit http://localhost:8080 to see the site running.
+At this point, you can visit <http://localhost:8080> to see the site running.
 
 You can also run composer from the image. The container environment is named
 "zf", so you will pass that value to `docker-compose run`:
@@ -172,7 +177,6 @@ http {
 }
 ```
 
-
 Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zfapp.localhost.conf`
 it should look something like below:
 
@@ -203,8 +207,8 @@ Restart the nginx, now you should be ready to go!
 The skeleton does not come with any QA tooling by default, but does ship with
 configuration for each of:
 
-- [phpcs](https://github.com/squizlabs/php_codesniffer)
-- [phpunit](https://phpunit.de)
+-   [phpcs](https://github.com/squizlabs/php_codesniffer)
+-   [phpunit](https://phpunit.de)
 
 Additionally, it comes with some basic tests for the shipped
 `Application\Controller\IndexController`.
